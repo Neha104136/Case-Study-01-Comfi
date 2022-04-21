@@ -15,6 +15,7 @@ import { feedback } from 'src/services/feedback';
 })
 export class FeedbackComponent {
 
+  alert:boolean = false;
   feedbackForm = this.formBuilder.group({
     id: [''],
     fname: [''],
@@ -34,7 +35,13 @@ export class FeedbackComponent {
 
   onSubmit(data:any) {
     this.FeedbackService.submitUser(data).subscribe(result=>{});
-    alert('!!Feedback Submitted Successfully!!');
+    // alert('!!Feedback Submitted Successfully!!');
+    this.alert = true;
  }
+
+ closeAlert(){
+  this.alert = false;
+}
+
 
 }
